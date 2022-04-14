@@ -1,0 +1,15 @@
+{
+  "name": "react-blog-backend",
+  "version": "1.0.0",
+  "description": "Backend REST API for React Blog App",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Asif Ridwan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
