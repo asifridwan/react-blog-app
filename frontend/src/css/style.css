@@ -20,6 +20,15 @@ button{
   background: none;
 }
 
+footer{
+  background-color: #272727;
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
 .inline-centering{
   display: flex;
   align-items: center;
