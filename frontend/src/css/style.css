@@ -14,7 +14,7 @@ nav{
   height: 7vh;
 }
 
-button{
+button, input, textarea{
   border: none;
   outline: none;
   background: none;
@@ -47,7 +47,96 @@ footer{
   font-weight: 600;
 }
 
+.blog-view{
+  min-height: 93vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.blog-contents{
+  margin-top: 50px;
+  width: 50vw;
+}
+
+.back-button{
+  background-color: #8415eb;
+  color: white;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.back-button:hover{
+  background-color: #6116a7;
+  cursor: pointer;
+}
+
+.blog-date{
+  margin-top: 60px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5c5c5c;
+}
+
+.blog-title{
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.blog-post{
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+.comment-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+  border: 1px solid #c5c5c5;
+  margin-top: 50px;
+  border-radius: 4px;
+  padding: 15px 12px;
+}
+
+.form-title{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.user-name, .user-comment, .submit-comment{
+  font-size: 15px;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin-top: 15px;
+}
+
+.user-name, .user-comment{
+  border: 1px solid #9c9c9c;
+}
+
+.user-name:focus, .user-comment:focus{
+  border: 1px solid #0ea6f4;
+}
+
+.user-comment{
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-comment{
+  background-color: #0ea6f4;
+  color: white;
+  font-weight: 500;
+}
+
+.submit-comment:hover{
+  background-color: #157ed4;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 768px){
   .logo-icon{
@@ -62,5 +151,31 @@ footer{
   footer{
     font-size: 10px;
     padding: 12px 0px;
+  }
+}
+
+@media screen and (max-width: 912px){
+  .blog-contents{
+    width: 70vw;
+  }
+
+  .back-button, .user-name, .user-comment, .submit-comment{
+    font-size: 12px;
+  }
+
+  .blog-date{
+    font-size: 10px;
+  }
+
+  .blog-title{
+    font-size: 22px;
+  }
+
+  .blog-post{
+    font-size: 14px;
+  }
+
+  .form-title{
+    font-size: 18px;
   }
 }
