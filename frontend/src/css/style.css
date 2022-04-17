@@ -54,7 +54,7 @@ footer{
   align-items: center;
 }
 
-.blog-contents{
+.blog-view-wrapper{
   margin-top: 50px;
   width: 50vw;
 }
@@ -72,8 +72,11 @@ footer{
   cursor: pointer;
 }
 
-.blog-date{
+.blog-post{
   margin-top: 60px;
+}
+
+.blog-date{
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -86,7 +89,7 @@ footer{
   font-weight: 700;
 }
 
-.blog-post{
+.blog-content{
   margin-top: 20px;
   font-size: 17px;
 }
@@ -95,7 +98,6 @@ footer{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-content: flex-start;
   border: 1px solid #c5c5c5;
   margin-top: 50px;
   border-radius: 4px;
@@ -155,7 +157,7 @@ footer{
 }
 
 @media screen and (max-width: 912px){
-  .blog-contents{
+  .blog-view-wrapper{
     width: 70vw;
   }
 
@@ -171,7 +173,7 @@ footer{
     font-size: 22px;
   }
 
-  .blog-post{
+  .blog-content{
     font-size: 14px;
   }
 
