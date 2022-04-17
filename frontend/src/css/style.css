@@ -80,7 +80,7 @@ footer{
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #5c5c5c;
+  color: #707070;
 }
 
 .blog-title{
@@ -140,6 +140,42 @@ footer{
   cursor: pointer;
 }
 
+.comments-container{
+  margin: 50px 0px;
+  padding: 15px 20px;
+}
+
+.comment-card{
+  border: 1px solid #c5c5c5;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.comment-username{
+  font-size: 15px;
+  font-weight: 700;
+  color: #6116a7;
+}
+
+.comment-time{
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #686868;
+  text-transform: uppercase;
+}
+
+.comment-body, .reply-option{
+  margin-top: 12px;
+}
+
+.reply-option{
+  font-size: 14px;
+  font-weight: 500;
+  color: #157ed4;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px){
   .logo-icon{
     height: 25px;
@@ -161,11 +197,11 @@ footer{
     width: 70vw;
   }
 
-  .back-button, .user-name, .user-comment, .submit-comment{
+  .back-button, .user-name, .user-comment, .submit-comment, .comment-username, .reply-option{
     font-size: 12px;
   }
 
-  .blog-date{
+  .blog-date, .comment-time{
     font-size: 10px;
   }
 
@@ -173,7 +209,7 @@ footer{
     font-size: 22px;
   }
 
-  .blog-content{
+  .blog-content, .comment-body{
     font-size: 14px;
   }
 

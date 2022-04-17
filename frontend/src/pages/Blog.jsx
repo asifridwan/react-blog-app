@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import BlogPost from '../components/BlogPost';
 import CommentForm from '../components/CommentForm';
+import AllComments from '../containers/AllComments';
 
 export default function Blog() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function Blog() {
         </div>
         <BlogPost id={id} />
         <CommentForm />
+        <AllComments />
       </div>
     </section>
   )
