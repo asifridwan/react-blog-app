@@ -47,24 +47,27 @@ footer{
   font-weight: 600;
 }
 
-.blog-view{
+.blog-view, .blog-home{
   min-height: 93vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.blog-view-wrapper{
-  margin-top: 50px;
+.blog-view-wrapper, .blog-home-wrapper{
+  margin: 50px 0px;
   width: 50vw;
 }
 
-.back-button{
-  background-color: #8415eb;
+.back-button, .add-button{
   color: white;
   padding: 8px 12px;
   font-size: 14px;
   border-radius: 4px;
+}
+
+.back-button{
+  background-color: #8415eb;
 }
 
 .back-button:hover{
@@ -72,7 +75,7 @@ footer{
   cursor: pointer;
 }
 
-.blog-post{
+.blog-post, .paginated-view-container{
   margin-top: 60px;
 }
 
@@ -141,7 +144,7 @@ footer{
 }
 
 .comments-container{
-  margin: 40px 0px;
+  margin-top: 35px;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
@@ -208,6 +211,36 @@ footer{
   color: #bb1010;
 }
 
+.add-button{
+  background-color: #2cda91;
+}
+
+.add-button:hover{
+  background-color: #37c784;
+  cursor: pointer;
+}
+
+.blog-demo{
+  margin-top: 20px;
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+  padding: 18px 12px;
+}
+
+.blog-demo-title{
+  font-size: 30px;
+  font-weight: 600;
+  color: #157ed4;
+}
+
+.blog-demo-date{
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #979797;
+}
+
 @media screen and (max-width: 768px){
   .logo-icon{
     height: 25px;
@@ -234,14 +267,22 @@ footer{
   .error-body{
     font-size: 15px;
   }
+  
+  .blog-demo-title{
+    font-size: 20px;
+  }
+
+  .blog-demo-date{
+    font-size: 9px;
+  }
 }
 
 @media screen and (max-width: 912px){
-  .blog-view-wrapper{
+  .blog-view-wrapper, .blog-home-wrapper{
     width: 70vw;
   }
 
-  .back-button, .user-name, .user-comment, .submit-comment, .comment-username, .reply-option{
+  .back-button, .user-name, .user-comment, .submit-comment, .comment-username, .reply-option, .add-button{
     font-size: 12px;
   }
 
