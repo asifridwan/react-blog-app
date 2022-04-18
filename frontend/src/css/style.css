@@ -141,14 +141,19 @@ footer{
 }
 
 .comments-container{
-  margin: 50px 0px;
+  margin: 40px 0px;
   padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .comment-card{
+  margin-top: 15px;
   border: 1px solid #c5c5c5;
   padding: 10px 15px;
   border-radius: 5px;
+  background-color: #deedf5;
 }
 
 .comment-username{
@@ -176,6 +181,33 @@ footer{
   cursor: pointer;
 }
 
+.not-found-view{
+  min-height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-thingy{
+  background-color: #fff6a9;
+  border-left: 10px solid #b12a08;
+  padding: 30px 50px;
+}
+
+.error-header{
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9b2111;
+}
+
+.error-body{
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #bb1010;
+}
+
 @media screen and (max-width: 768px){
   .logo-icon{
     height: 25px;
@@ -189,6 +221,18 @@ footer{
   footer{
     font-size: 10px;
     padding: 12px 0px;
+  }
+
+  .not-found-thingy{
+    padding: 15px 30px;
+  }
+  
+  .error-header{
+    font-size: 20px;
+  }
+
+  .error-body{
+    font-size: 15px;
   }
 }
 
