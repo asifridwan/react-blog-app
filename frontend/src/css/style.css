@@ -241,6 +241,34 @@ footer{
   color: #979797;
 }
 
+.pagination-container{
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-buttons{
+  list-style: none;
+  display: flex;
+}
+
+.pagination-buttons a{
+  border: 1px solid #0ea6f4;
+  color: #0ea6f4;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  margin: 0px 8px;
+}
+
+.pagination-buttons a:hover, .paginate-active a{
+  cursor: pointer;
+  background-color: #0ea6f4;
+  color: white;
+}
+
 @media screen and (max-width: 768px){
   .logo-icon{
     height: 25px;
@@ -275,11 +303,17 @@ footer{
   .blog-demo-date{
     font-size: 9px;
   }
+
+  .pagination-buttons a{
+    font-size: 12px;
+    padding: 3px 6px;
+    margin: 0px;
+  }
 }
 
 @media screen and (max-width: 912px){
   .blog-view-wrapper, .blog-home-wrapper{
-    width: 70vw;
+    width: 80vw;
   }
 
   .back-button, .user-name, .user-comment, .submit-comment, .comment-username, .reply-option, .add-button{
