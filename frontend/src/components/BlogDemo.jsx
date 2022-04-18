@@ -1,8 +1,8 @@
-export default function BlogDemo() {
+export default function BlogDemo({title, date}) {
   return (
     <div className='blog-demo'>
-        <div className='blog-demo-title'>Blog Title</div>
-        <div className='blog-demo-date'>Blog Date</div>
+        <div className='blog-demo-title'>{title}</div>
+        <div className='blog-demo-date'>{date}</div>
     </div>
   )
 }
