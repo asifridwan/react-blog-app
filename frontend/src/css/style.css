@@ -52,6 +52,7 @@ footer{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center
 }
 
 .blog-view-wrapper, .blog-home-wrapper{
@@ -290,6 +291,7 @@ footer{
   align-items: center;
   position: fixed;
   z-index: 1000;
+  width: inherit;
 }
 
 .modal-form{
@@ -297,9 +299,9 @@ footer{
   padding: 30px;
   display: flex;
   flex-direction: column;
-  width: 40vw;
   border-radius: 5px;
   border: 2px solid #c5c5c5;
+  width: 30vw;
 }
 
 .modal-centering{
@@ -425,5 +427,30 @@ footer{
 
   .form-title{
     font-size: 18px;
+  }
+
+  .modal-form{
+    width: 64vw;
+  }
+
+  .modal-heading{
+    font-size: 20px;
+  }
+
+  .post-title, .post-content, .post-date, .error-message, .submit-post, .cancel-post{
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .post-title, .post-content, .post-date, .error-message{
+    padding: 5px 8px;
+  }
+
+  .post-content{
+    min-height: 100px;
+  }
+
+  .submit-post, .cancel-post{
+    padding: 4px 6px;
   }
 }

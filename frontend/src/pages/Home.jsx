@@ -8,7 +8,7 @@ export default function Home({data}) {
         <div>
           <button className='add-button'><i className='fa fa-plus-circle'></i> Add New Post</button>
         </div>
-        {/* <AddModal /> */}
+        <AddModal />
         <PaginatedView data={data} />
       </div>
     </section>
