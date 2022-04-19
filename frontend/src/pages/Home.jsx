@@ -1,4 +1,5 @@
 import PaginatedView from '../containers/PaginatedView';
+import AddModal from '../components/AddModal';
 
 export default function Home({data}) {
   return (
@@ -7,6 +8,7 @@ export default function Home({data}) {
         <div>
           <button className='add-button'><i className='fa fa-plus-circle'></i> Add New Post</button>
         </div>
+        {/* <AddModal /> */}
         <PaginatedView data={data} />
       </div>
     </section>

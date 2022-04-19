@@ -119,11 +119,11 @@ footer{
   margin-top: 15px;
 }
 
-.user-name, .user-comment{
+.user-name, .user-comment, .post-title, .post-content, .post-date{
   border: 1px solid #9c9c9c;
 }
 
-.user-name:focus, .user-comment:focus{
+.user-name:focus, .user-comment:focus, .post-title:focus, .post-content:focus, .post-date:focus{
   border: 1px solid #0ea6f4;
 }
 
@@ -222,15 +222,19 @@ footer{
 
 .blog-demo{
   margin-top: 20px;
-  border-top: 1px solid #bbbbbb;
-  border-bottom: 1px solid #bbbbbb;
   padding: 18px 12px;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
 }
 
 .blog-demo-title{
   font-size: 30px;
   font-weight: 600;
   color: #157ed4;
+}
+
+.blog-demo-title:hover{
+  text-decoration: underline;
 }
 
 .blog-demo-date{
@@ -267,6 +271,93 @@ footer{
   cursor: pointer;
   background-color: #0ea6f4;
   color: white;
+}
+
+.overlay-style{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.modal-container{
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+}
+
+.modal-form{
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  border-radius: 5px;
+  border: 2px solid #c5c5c5;
+}
+
+.modal-centering{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-heading{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.post-title, .post-content, .post-date, .error-message, .submit-post, .cancel-post{
+  font-size: 18px;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+
+.post-title, .post-content, .post-date, .error-message{
+  padding: 12px 18px;
+  font-weight: 300;
+}
+
+.post-content{
+  min-height: 200px;
+  resize: vertical;
+}
+
+.error-message{
+  background-color: #ffecae;
+  border: 2px solid #e72315;
+  color: #e72315;
+}
+
+.submit-post, .cancel-post{
+  color: white;
+  font-weight: 500;
+  padding: 10px 15px;
+}
+
+.submit-post{
+  background-color: #23cf70;
+}
+
+.submit-post:hover{
+  background-color: #1fb462;
+  cursor: pointer;
+}
+
+.cancel-post{
+  background-color: #dd2019;
+  margin-left: 80px;
+}
+
+.cancel-post:hover{
+  background-color: #af1d18;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px){
