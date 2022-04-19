@@ -36,4 +36,22 @@ export const getPostDetails = (req, res) => {
 export const addNewPost = (req, res) => {
     const id = uuidv1();
     const {title, body, post_date} = req.body;
+
+    if (title && body && post_date) {
+        if (body.length > 55000) {
+            res.send('Content cannot exceed 55000 characters');
+        }
+        else {
+            pool.query('INSERT INTO posts (id, title, body, post_date) VALUES ($1, $2, $3, $4)', [id, title, body, post_date], (error, result) => {
+                if (error) {
+                    res.send(error);
+                }
+
+                res.status(200).send('Success');
+            });
+        }
+    }
+    else {
+        res.send('Required fields cannot be empty');
+    }
 }
