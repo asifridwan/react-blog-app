@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     axios.get('http://localhost:4000/posts').then(res => setBlogs(res.data));
-  }, []);
+  }, [showModal]);
 
   function ToggleModal() {
     setShowModal(!showModal);

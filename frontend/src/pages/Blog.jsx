@@ -16,7 +16,7 @@ export default function Blog() {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/details/${id}/`).then(response => {
+    axios.get(`http://localhost:4000/details/${id}`).then(response => {
       if (response.data === 'Not Found') {
         navigate('*');
       }

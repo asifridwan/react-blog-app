@@ -3,7 +3,7 @@ export default function AddModal({errorMessage, title, body, date, submit, cance
         <>
             <div className='overlay-style' />
             <div className='modal-container'>
-                <form className='modal-form'>
+                <div className='modal-form'>
                     <div className='modal-centering'>
                         <label className='modal-heading'>
                             <i className='fa fa-plus-square'></i> Add a New Post
@@ -19,7 +19,7 @@ export default function AddModal({errorMessage, title, body, date, submit, cance
                         <button className='submit-post' onClick={submit}>Submit</button>
                         <button className='cancel-post' onClick={cancel}>Cancel</button>
                     </div>
-                </form>
+                </div>
             </div>
         </>
     )
