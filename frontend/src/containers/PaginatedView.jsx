@@ -11,7 +11,7 @@ export default function PaginatedView({data}) {
   const renderBlogs = data
     .slice(blogsRendered, blogsRendered + blogsPerPage)
     .map((item, i) => {
-      return <BlogDemo key={i} id={item.id} title={item.title} date={item.userId} />
+      return <BlogDemo key={i} id={item.id} title={item.title} date={item.post_date} />
     }
   );
 
@@ -22,7 +22,7 @@ export default function PaginatedView({data}) {
   return (
     <div>
       <div className='paginated-view-container'>{renderBlogs}</div>
-      {data.length > 0 &&
+      {data.length > 10 &&
         <div className='pagination-container'>
           <ReactPaginate 
             previousLabel='Previous'
