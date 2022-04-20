@@ -10,14 +10,14 @@ export default function AddModal({errorMessage, title, body, date, submit, cance
                         </label>
                     </div>
                     <div className='modal-centering'>
-                        <div className='error-message'><i className='fa fa-exclamation-triangle'></i> {errorMessage}</div>
+                        {errorMessage && <div className='error-message'><i className='fa fa-exclamation-triangle'></i> {errorMessage}</div>}
                     </div>
-                    <input className='post-title' type='text' placeholder='Title' onChange={title} required />
-                    <textarea className='post-content' placeholder='Content' onChange={body} required></textarea>
-                    <input className='post-date' type='date' onChange={date} required />
+                    <input className='post-title' type='text' placeholder='Title' onChange={title} />
+                    <textarea className='post-content' placeholder='Content' onChange={body}></textarea>
+                    <input className='post-date' type='date' onChange={date} />
                     <div className='modal-centering'>
-                        <button className='submit-post' type='submit' onClick={submit}>Submit</button>
-                        <button className='cancel-post' type='reset' onClick={cancel}>Cancel</button>
+                        <button className='submit-post' onClick={submit}>Submit</button>
+                        <button className='cancel-post' onClick={cancel}>Cancel</button>
                     </div>
                 </form>
             </div>
