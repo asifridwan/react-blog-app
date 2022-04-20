@@ -152,11 +152,19 @@ footer{
 }
 
 .comment-card{
-  margin-top: 15px;
   border: 1px solid #c5c5c5;
   padding: 10px 15px;
   border-radius: 5px;
-  background-color: #deedf5;
+}
+
+.parent{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.reply{
+  width: 90%;
+  margin-top: 10px;
 }
 
 .comment-username{
@@ -181,7 +189,11 @@ footer{
   font-size: 14px;
   font-weight: 500;
   color: #157ed4;
+}
+
+.reply-option:hover{
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .not-found-view{

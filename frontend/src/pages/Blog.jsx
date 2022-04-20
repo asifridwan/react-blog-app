@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import BlogPost from '../components/BlogPost';
 import CommentForm from '../components/CommentForm';
-import AllComments from '../containers/AllComments';
+import CommentsList from '../containers/CommentsList';
 
 export default function Blog() {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function Blog() {
         </div>
         <BlogPost date={details[0].post_date} title={details[0].title} body={details[0].body} />
         <CommentForm />
-        <AllComments />
+        <CommentsList />
       </div>}
     </section>
   )
