@@ -1,4 +1,4 @@
-export default function AddModal() {
+export default function AddModal({errorMessage, title, body, date, submit, cancel}) {
     return (
         <>
             <div className='overlay-style' />
@@ -10,14 +10,14 @@ export default function AddModal() {
                         </label>
                     </div>
                     <div className='modal-centering'>
-                        <div className='error-message'><i className='fa fa-exclamation-triangle'></i> Required fields cannot be empty</div>
+                        <div className='error-message'><i className='fa fa-exclamation-triangle'></i> {errorMessage}</div>
                     </div>
-                    <input className='post-title' type='text' placeholder='Title' required />
-                    <textarea className='post-content' placeholder='Content' required></textarea>
-                    <input className='post-date' type='date' required />
+                    <input className='post-title' type='text' placeholder='Title' onChange={title} required />
+                    <textarea className='post-content' placeholder='Content' onChange={body} required></textarea>
+                    <input className='post-date' type='date' onChange={date} required />
                     <div className='modal-centering'>
-                        <button className='submit-post' type='submit'>Submit</button>
-                        <button className='cancel-post' type='reset'>Cancel</button>
+                        <button className='submit-post' type='submit' onClick={submit}>Submit</button>
+                        <button className='cancel-post' type='reset' onClick={cancel}>Cancel</button>
                     </div>
                 </form>
             </div>

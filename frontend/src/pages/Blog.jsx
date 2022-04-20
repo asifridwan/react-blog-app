@@ -28,16 +28,14 @@ export default function Blog() {
 
   return (
     <section className='blog-view'>
-      <div className='blog-view-wrapper'>
+      {details.length > 0 && <div className='blog-view-wrapper'>
         <div>
           <button className='back-button' onClick={BackToHome}><i className='fa fa-arrow-circle-left'></i> Back To Home</button>
         </div>
-        {details.length > 0 && <div>
-          <BlogPost date={details[0].post_date} title={details[0].title} body={details[0].body} />
-          <CommentForm />
-          <AllComments />
-        </div>}
-      </div>
+        <BlogPost date={details[0].post_date} title={details[0].title} body={details[0].body} />
+        <CommentForm />
+        <AllComments />
+      </div>}
     </section>
   )
 }
