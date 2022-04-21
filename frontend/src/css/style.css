@@ -143,28 +143,26 @@ footer{
   cursor: pointer;
 }
 
-.comments-container{
+.comment-section{
   margin-top: 35px;
-  padding: 15px 20px;
+}
+
+.comments-container{
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  margin-left: 20px;
+}
+
+.reply{
+  background-color: #e2f5ff;
 }
 
 .comment-card{
   border: 1px solid #c5c5c5;
   padding: 10px 15px;
   border-radius: 5px;
-}
-
-.parent{
-  width: 100%;
-  margin-top: 20px;
-}
-
-.reply{
-  width: 90%;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .comment-username{
