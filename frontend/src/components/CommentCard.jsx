@@ -47,7 +47,7 @@ export default function CommentCard({info, type}) {
         <p className='comment-body'>{info.body}</p>
         <div className='reply-option'>Reply</div>
       </div>
-      {replies.length > 0 && <div>
+      {replies.length > 0 && <div className='reply-container'>
         <div className='replies'>
           {replies.map((reply, i) => {
             return <CommentCard key={i} info={reply} type='reply' />

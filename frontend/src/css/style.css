@@ -151,7 +151,10 @@ footer{
   margin-top: 5px;
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+}
+
+.reply-container{
+  margin-left: 8%;
 }
 
 .reply{
