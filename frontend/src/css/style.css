@@ -167,14 +167,32 @@ footer{
   margin-top: 15px;
 }
 
+.comment-info-container{
+  display: flex;
+}
+
+.comment-author-pic{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-image: url('../images/user_icon.jpg');
+  background-size: cover;
+}
+
+.comment-maker-details{
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
 .comment-username{
+  margin-left: 6px;
   font-size: 15px;
   font-weight: 700;
   color: #6116a7;
 }
 
 .comment-time{
-  margin-top: 6px;
+  margin-top: 4px;
   font-size: 12px;
   font-weight: 600;
   color: #686868;
@@ -420,6 +438,11 @@ footer{
 
   .back-button, .user-name, .user-comment, .submit-comment, .comment-username, .reply-option, .add-button{
     font-size: 12px;
+  }
+
+  .comment-author-pic{
+    height: 35px;
+    width: 35px;
   }
 
   .blog-date, .comment-time{

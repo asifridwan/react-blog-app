@@ -18,8 +18,13 @@ export default function CommentCard({info, type, sendID, sendingReplyToParent}) 
   return (
     <div className='comments-container'>
       <div className={`comment-card ${type}`}>
-        <div className='comment-username'>{info.author}</div>
-        <div className='comment-time'>{displayDate} at {displayTime}</div>
+        <div className='comment-info-container'>
+          <div className='comment-author-pic'></div>
+          <div className='comment-maker-details'>
+            <div className='comment-username'>{info.author}</div>
+            <div className='comment-time'>{displayDate} at {displayTime}</div>
+          </div>
+        </div>
         <p className='comment-body'>{info.body}</p>
         <Link to='comment-reply-form' spy={true} smooth={true}><div className='reply-option' onClick={() => sendID(info.id)}>Reply</div></Link>
       </div>
