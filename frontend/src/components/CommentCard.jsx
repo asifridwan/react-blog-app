@@ -1,56 +1,31 @@
-export default function CommentCard({info, type}) {
-  const comments = [
-    {
-      id: 1,
-      author: 'Name 1',
-      body: 'Body',
-      date: '2022-04-21',
-      parent: null
-    },
-    {
-      id: 2,
-      author: 'Name 2',
-      body: 'Body',
-      date: '2022-04-21',
-      parent: null
-    },
-    {
-      id: 3,
-      author: 'Name 3',
-      body: 'Body',
-      date: '2022-04-21',
-      parent: 1
-    },
-    {
-      id: 4,
-      author: 'Name 4',
-      body: 'Body',
-      date: '2022-04-21',
-      parent: 1
-    },
-    {
-      id: 5,
-      author: 'Name 5',
-      body: 'Body',
-      date: '2022-04-21',
-      parent: 3
-    }
-  ];
-  
-  const replies = comments.filter(reply => reply.parent === info.id)
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
+
+export default function CommentCard({info, type, sendID, sendingReplyToParent}) {
+  const [replies, setReplies] = useState([]);
+  const standardDate = info.comment_date.split('T')[0];
+
+  useEffect(() => {
+    axios.get(`http://localhost:4000/replies/${info.id}`).then(res => setReplies(res.data));
+  });
+
+  function SendReply(id) {
+    sendingReplyToParent(id);
+  }
 
   return (
     <div className='comments-container'>
       <div className={`comment-card ${type}`}>
         <div className='comment-username'>{info.author}</div>
-        <div className='comment-time'>Posted on : {info.date}</div>
+        <div className='comment-time'>Posted on : {standardDate}</div>
         <p className='comment-body'>{info.body}</p>
-        <div className='reply-option'>Reply</div>
+        <Link to='comment-reply-form' spy={true} smooth={true}><div className='reply-option' onClick={() => sendID(info.id)}>Reply</div></Link>
       </div>
       {replies.length > 0 && <div className='reply-container'>
         <div className='replies'>
-          {replies.map((reply, i) => {
-            return <CommentCard key={i} info={reply} type='reply' />
+          {replies.map((reply) => {
+            return <CommentCard key={reply.id} info={reply} type='reply' sendID={SendReply} />
           })}
         </div>
       </div>}
