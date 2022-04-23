@@ -5,7 +5,7 @@ export default function CommentForm({author, body, submitComment}) {
       <input className='user-name' type='text' placeholder='Name' onChange={author} required />
       <textarea className='user-comment' placeholder='Comment' onChange={body} required></textarea>
       <div>
-        <button className='submit-comment' type='submit' onClick={submitComment}>Submit</button>
+        <button className='submit-comment' onClick={submitComment}>Submit</button>
       </div>
     </form>
   )

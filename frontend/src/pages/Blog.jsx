@@ -48,7 +48,7 @@ export default function Blog() {
   }
 
   function PostComment() {
-    const comment_date = new Date().toISOString().slice(0, 10);
+    const comment_date = new Date().toISOString();
 
     axios.post('http://localhost:4000/add/comment', {
       author: author,
