@@ -1,15 +1,16 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import axios from 'axios';
 
 export default function CommentCard({info, type, sendID, sendingReplyToParent}) {
   const [replies, setReplies] = useState([]);
+
   const displayDate = new Date(info.comment_date).toDateString();
   const displayTime = new Date(info.comment_date).toLocaleTimeString();
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/replies/${info.id}`).then(res => setReplies(res.data));
-  });
+    axios.get(`http://localhost:4000/replies/${info.id}`).then(response => setReplies(response.data));
+  }, [info.id]);
 
   function SendReply(id) {
     sendingReplyToParent(id);

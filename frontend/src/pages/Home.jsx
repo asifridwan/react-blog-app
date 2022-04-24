@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import axios from 'axios';
 
 import PaginatedView from '../containers/PaginatedView';
 import AddModal from '../components/AddModal';
 import { settingPosts } from '../store/posts';
+import { resetDetails } from '../store/details';
+import { resetComments } from '../store/comments';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -18,10 +19,13 @@ export default function Home() {
   const posts = useSelector(state => state.posts.value);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/posts').then(res => {
-      dispatch(settingPosts(res.data));
+    axios.get('http://localhost:4000/posts').then(response => {
+      dispatch(settingPosts(response.data));
     });
-  }, [dispatch, showModal]);
+
+    dispatch(resetDetails({}));
+    dispatch(resetComments([]));
+  }, [dispatch, posts]);
 
   function ToggleModal() {
     setShowModal(!showModal);

@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import BlogPost from '../components/BlogPost';
 import CommentForm from '../components/CommentForm';
 import CommentsList from '../containers/CommentsList';
+import { settingDetails } from '../store/details';
 
 export default function Blog() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [details, setDetails] = useState([]);
   const [author, setAuthor] = useState('');
   const [commentBody, setCommentBody] = useState('');
   const [replyID, setReplyID] = useState('');
+
+  const dispatch = useDispatch();
+  const details = useSelector(state => state.details.value[0]);
 
   useEffect(() => {
     axios.get(`http://localhost:4000/details/${id}`).then(response => {
@@ -20,21 +24,13 @@ export default function Blog() {
         navigate('*');
       }
       else {
-        setDetails(response.data);
+        dispatch(settingDetails(response.data));
       }
     });
-  }, [id, navigate]);
+  }, [id, dispatch, navigate]);
 
   function BackToHome() {
     navigate('/');
-  }
-
-  function SettingAuthor(e) {
-    setAuthor(e.target.value);
-  }
-
-  function SettingBody(e) {
-    setCommentBody(e.target.value);
   }
 
   function SettingReply(id) {
@@ -79,12 +75,12 @@ export default function Blog() {
 
   return (
     <section className='blog-view'>
-      {details.length > 0 && <div className='blog-view-wrapper'>
+      {details && <div className='blog-view-wrapper'>
         <div>
           <button className='back-button' onClick={BackToHome}><i className='fa fa-arrow-circle-left'></i> Back To Home</button>
         </div>
-        <BlogPost date={details[0].post_date} title={details[0].title} body={details[0].body} />
-        <CommentForm author={SettingAuthor} body={SettingBody} submitComment={PostComment} />
+        <BlogPost date={details.post_date} title={details.title} body={details.body} />
+        <CommentForm author={e => setAuthor(e.target.value)} body={e => setCommentBody(e.target.value)} submitComment={PostComment} />
         <CommentsList postID={id} sendCommentID={SettingReply} sendReplyID={SettingReply} />
       </div>}
     </section>

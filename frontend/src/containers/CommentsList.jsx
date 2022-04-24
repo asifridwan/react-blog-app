@@ -1,14 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 
 import CommentCard from '../components/CommentCard';
+import { settingComments } from '../store/comments';
 
 export default function CommentsList({postID, sendCommentID, sendReplyID}) {
-  const [comments, setComments] = useState([]);
+  const dispatch = useDispatch();
+  const comments = useSelector(state => state.comments.value);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/comments/${postID}`).then(response => setComments(response.data));
-  }, [postID]);
+    axios.get(`http://localhost:4000/comments/${postID}`).then(response => {
+      dispatch(settingComments(response.data));
+    });
+  }, [dispatch, postID]);
 
   const rootComments = comments.filter(comment => comment.parent === null);
 
