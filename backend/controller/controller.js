@@ -2,7 +2,7 @@ import pool from '../database/connection.js';
 import { v1 as uuidv1, v4 as uuidv4 } from 'uuid';
 
 export const getAllPosts = (req, res) => {
-    pool.query('SELECT id, title, post_date FROM posts', (error, result) => {
+    pool.query('SELECT id, title, post_date FROM posts ORDER BY post_date DESC', (error, result) => {
         if (error) {
             res.send(error);
         }
