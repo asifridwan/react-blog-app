@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
+
 import BlogDemo from '../components/BlogDemo';
 
 export default function PaginatedView({data}) {

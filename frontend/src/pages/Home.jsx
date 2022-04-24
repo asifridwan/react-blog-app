@@ -1,20 +1,27 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import axios from 'axios';
 
 import PaginatedView from '../containers/PaginatedView';
 import AddModal from '../components/AddModal';
+import { settingPosts } from '../store/posts';
 
 export default function Home() {
-  const [blogs, setBlogs] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [date, setDate] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const dispatch = useDispatch();
+  const posts = useSelector(state => state.posts.value);
+
   useEffect(() => {
-    axios.get('http://localhost:4000/posts').then(res => setBlogs(res.data));
-  }, [showModal]);
+    axios.get('http://localhost:4000/posts').then(res => {
+      dispatch(settingPosts(res.data));
+    });
+  }, [dispatch, showModal]);
 
   function ToggleModal() {
     setShowModal(!showModal);
@@ -26,18 +33,6 @@ export default function Home() {
     setDate('');
     setErrorMessage('');
     ToggleModal();
-  }
-
-  function SettingTitle(e) {
-    setTitle(e.target.value);
-  }
-
-  function SettingBody(e) {
-    setBody(e.target.value);
-  }
-
-  function SettingDate(e) {
-    setDate(e.target.value);
   }
 
   function SubmitPost() {
@@ -58,11 +53,19 @@ export default function Home() {
   return (
     <section className='blog-home'>
       <div className='blog-home-wrapper'>
-        {showModal && <AddModal clickAction={ToggleModal} errorMessage={errorMessage} title={SettingTitle} body={SettingBody} date={SettingDate} submit={SubmitPost} cancel={CloseModal} />}
+        {showModal && <AddModal 
+          clickAction={ToggleModal} 
+          errorMessage={errorMessage} 
+          title={e => setTitle(e.target.value)} 
+          body={e => setBody(e.target.value)} 
+          date={e => setDate(e.target.value)} 
+          submit={SubmitPost} 
+          cancel={CloseModal} 
+        />}
         <div>
           <button className='add-button' onClick={ToggleModal}><i className='fa fa-plus-circle'></i> Add New Post</button>
         </div>
-        <PaginatedView data={blogs} />
+        <PaginatedView data={posts} />
       </div>
     </section>
   )
