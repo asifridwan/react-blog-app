@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 import PaginatedView from '../containers/PaginatedView';
 import AddModal from '../components/AddModal';
-import { settingPosts } from '../store/posts';
-import { resetDetails } from '../store/details';
-import { resetComments } from '../store/comments';
+import { fetchPosts } from '../store/posts';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -15,16 +13,11 @@ export default function Home() {
   const [date, setDate] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const posts = useSelector(state => state.posts.posts);
   const dispatch = useDispatch();
-  const posts = useSelector(state => state.posts.value);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/posts').then(response => {
-      dispatch(settingPosts(response.data));
-    });
-
-    dispatch(resetDetails({}));
-    dispatch(resetComments([]));
+    dispatch(fetchPosts());
   }, [dispatch, posts]);
 
   function ToggleModal() {
@@ -69,7 +62,7 @@ export default function Home() {
         <div>
           <button className='add-button' onClick={ToggleModal}><i className='fa fa-plus-circle'></i> Add New Post</button>
         </div>
-        <PaginatedView data={posts} />
+        {posts.length > 0 && <PaginatedView data={posts} />}
       </div>
     </section>
   )
