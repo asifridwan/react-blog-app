@@ -50,23 +50,24 @@ export default function Blog() {
   function ResetComment() {
     setAuthor('');
     setCommentBody('');
-    setReplyID('');
   }
 
   function PostComment() {
     const comment_date = GenerateTimestampWithUTCOffset(new Date());
 
-    axios.post('http://localhost:4000/add/comment', {
+    if (author && commentBody) {
+      axios.post('http://localhost:4000/add/comment', {
       author: author,
       body: commentBody,
       comment_date: comment_date,
       post_id: id,
       parent: replyID
-    }).then(response => {
-      if (response.data === 'Success') {
-        ResetComment();
-      }
-    });
+      }).then(response => {
+        if (response.data === 'Success') {
+          ResetComment();
+        }
+      });
+    }
   }
 
   return (
