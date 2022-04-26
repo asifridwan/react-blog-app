@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import PaginatedView from '../containers/PaginatedView';
 import AddModal from '../components/AddModal';
-import { fetchPosts } from '../store/posts';
+import { fetchPosts, selectPosts } from '../store/posts';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -13,12 +13,13 @@ export default function Home() {
   const [date, setDate] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const posts = useSelector(state => state.posts.posts);
+  const posts = useSelector(selectPosts);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPosts());
-  }, [dispatch, posts]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showModal]);
 
   function ToggleModal() {
     setShowModal(!showModal);

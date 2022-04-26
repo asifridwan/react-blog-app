@@ -7,7 +7,8 @@ const initialState = {
 };
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    return axios.get('http://localhost:4000/posts').then(res => res.data);
+    const response = await axios.get('http://localhost:4000/posts');
+    return response.data;
 });
 
 const posts_slice = createSlice({
@@ -28,3 +29,4 @@ const posts_slice = createSlice({
 });
 
 export default posts_slice.reducer;
+export const selectPosts = state => state.posts.posts;

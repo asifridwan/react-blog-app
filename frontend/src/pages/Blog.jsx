@@ -1,29 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 import BlogPost from '../components/BlogPost';
 import CommentForm from '../components/CommentForm';
 import CommentsList from '../containers/CommentsList';
+import { fetchDetails, selectDetails, resetDetails } from '../store/details';
 
 export default function Blog() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [details, setDetails] = useState([]);
+
   const [author, setAuthor] = useState('');
   const [commentBody, setCommentBody] = useState('');
   const [replyID, setReplyID] = useState('');
 
+  const details = useSelector(selectDetails);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios.get(`http://localhost:4000/details/${id}`).then(response => {
-      if (response.data === 'Not Found') {
-        navigate('*');
-      }
-      else {
-        setDetails(response.data)
-      }
-    });
-  }, [id, navigate]);
+    dispatch(resetDetails());
+    dispatch(fetchDetails(id));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   function BackToHome() {
     navigate('/');
@@ -79,6 +79,7 @@ export default function Blog() {
         <CommentForm author={e => setAuthor(e.target.value)} body={e => setCommentBody(e.target.value)} submitComment={PostComment} />
         <CommentsList postID={id} sendCommentID={SettingReply} sendReplyID={SettingReply} />
       </div>}
+      {details === 'Not Found' && navigate('*')}
     </section>
   )
 }
